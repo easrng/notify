@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Notify</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Notify" />
+    <meta name="apple-mobile-web-app-title" content="Notify" />
+    <meta name="theme-color" content="#E91E63" />
+    <meta name="msapplication-navbutton-color" content="#E91E63" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="msapplication-starturl" content="/" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/bbb8ca2d-8fcf-47a3-8986-802c6916a218/favicon.ico?v=1674624239318"
+      sizes="any"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://cdn.glitch.global/bbb8ca2d-8fcf-47a3-8986-802c6916a218/apple-touch-icon.png?v=1674624238730"
+    />
+    <meta name="title" content="Notify" />
+    <meta
+      name="description"
+      content="A simple API for sending notifications over Matrix"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Notify" />
+    <meta
+      property="og:description"
+      content="A simple API for sending notifications over Matrix"
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.global/bbb8ca2d-8fcf-47a3-8986-802c6916a218/icon-512.png?v=1674624240627"
+    />
+    <meta property="twitter:card" content="summary_image" />
+    <meta property="twitter:title" content="Notify" />
+    <meta
+      property="twitter:description"
+      content="A simple API for sending notifications over Matrix"
+    />
+    <meta
+      property="twitter:image"
+      content="https://cdn.glitch.global/bbb8ca2d-8fcf-47a3-8986-802c6916a218/icon-512.png?v=1674624240627"
+    />
+    <style>
+      body,
+      html {
+        font-family: Roboto, system-ui, sans-serif;
+        text-align: center;
+        color-scheme: light dark;
+      }
+      body {
+        margin: 0 auto;
+        max-width: 30rem;
+        padding: 0.5rem;
+      }
+      #logo {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        animation-name: pulse;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+      }
+      @media not (prefers-reduced-motion) {
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 0px #e91e63aa;
+          }
+          75% {
+            box-shadow: 0 0 0 1rem #e91e6300;
+          }
+        }
+      }
+      header {
+        padding: 1rem 0;
+      }
+      h1 {
+        margin: 0;
+        margin-top: 0.5rem;
+      }
+      p,
+      h2 {
+        margin: 0.5rem 0;
+      }
+      header {
+        max-width: max-content;
+        margin: 0 auto;
+      }
+      .mention {
+        text-decoration: none;
+        color: #fff;
+        background: #777;
+        border-radius: 2rem;
+        padding: 0 0.25em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://cdn.glitch.global/bbb8ca2d-8fcf-47a3-8986-802c6916a218/icon-192.png?v=1674624239728"
+        aria-hidden="true"
+        id="logo"
+      />
+      <h1>Notify</h1>
+      <p>A simple API for sending notifications over Matrix</p>
+    </header>
+    <h2>Get a token</h2>
+    <p>
+      To get an token, invite
+      <a href="https://matrix.to/#/@notify:yuri.im" class="mention"
+        >@notify:yuri.im</a
+      >
+      to a Matrix room. It will automatically join and send the token.
+    </p>
+    <h2>Send a notification</h2>
+    <p>
+      To send a notification, <code>POST</code> your message to
+      <code>https://notify.easrng.net/notify/:token</code>. The endpoint accepts
+      <code>Content-Type: text/plain</code> and
+      <code>Content-Type: text/html</code>.
+    </p>
+    <h2>Revoke a token</h2>
+    <p>
+      To revoke a token, send a <code>DELETE</code> request to
+      <code>https://notify.easrng.net/notify/:token</code>. The token will immediately be revoked, and the bot will leave a few minutes later. Invite it again to get a new token.
+    </p>
+  </body>
+</html>
